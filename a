@@ -1,0 +1,31 @@
+def explicar_efeito_estufa():
+    explicacao = """
+O efeito estufa é um fenômeno natural que ocorre quando certos gases na atmosfera da Terra,
+como dióxido de carbono (CO₂), metano (CH₄) e vapor d'água, retêm parte do calor emitido pelo Sol.
+Isso mantém a temperatura do planeta adequada para a vida.
+
+Como funciona?
+1. A luz do Sol atravessa a atmosfera e aquece a superfície da Terra.
+2. A Terra libera parte desse calor de volta para o espaço em forma de radiação infravermelha.
+3. Os gases do efeito estufa absorvem e redirecionam parte desse calor de volta para a superfície, mantendo o planeta mais quente.
+
+Sem o efeito estufa, a Terra seria muito fria para a maioria das formas de vida.
+No entanto, o excesso desses gases, causado principalmente pela queima de combustíveis fósseis, aumenta o efeito estufa e pode causar o aquecimento global.
+
+Analogia:
+Imagine a atmosfera como um cobertor. Ela mantém o calor próximo da superfície, deixando o planeta aconchegante.
+Se adicionarmos muitos cobertores, ficará quente demais!
+
+Principais gases do efeito estufa:
+- Dióxido de carbono (CO₂)
+- Metano (CH₄)
+- Óxidos de nitrogênio (NOₓ)
+- Vapor d'água
+
+Conclusão:
+O efeito estufa é essencial para a vida, mas seu aumento exagerado traz problemas para o clima do planeta.
+"""
+    print(explicacao)
+
+if __name__ == "__main__":
+    explicar_efeito_estufa()
