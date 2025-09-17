@@ -1,31 +1,119 @@
-def explicar_efeito_estufa():
-    explicacao = """
-O efeito estufa é um fenômeno natural que ocorre quando certos gases na atmosfera da Terra,
-como dióxido de carbono (CO₂), metano (CH₄) e vapor d'água, retêm parte do calor emitido pelo Sol.
-Isso mantém a temperatura do planeta adequada para a vida.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Efeito Estufa - Explicação Interativa</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #eaf6ff; margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: 30px auto; background: #fff; border-radius: 8px; box-shadow: 0 0 10px #b3d1e6; padding: 24px; }
+        h1 { color: #2471a3; }
+        .analogia { font-size: 1.1em; margin-top: 20px; }
+        .camada { font-size: 2em; text-align: center; margin: 10px 0; }
+        .quiz { background: #f1f9ff; padding: 18px; border-radius: 6px; margin-top: 30px; }
+        .quiz label { display: block; margin: 12px 0 6px; }
+        .btn { background: #2980b9; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background: #21618c; }
+        .resultado { margin-top: 10px; font-size: 1.1em; }
+    </style>
+    <script>
+        function mostrarCamadas() {
+            const camadas = [
+                "🌎", 
+                "🟦 Atmosfera 🌎", 
+                "🟦🟦 Atmosfera 🌎", 
+                "🟦🟦🟦 Atmosfera 🌎", 
+                "🟦🟦🟦🟦 Atmosfera 🌎"
+            ];
+            let i = 0;
+            const container = document.getElementById('camadas');
+            container.innerHTML = "";
+            function mostrar() {
+                if (i < camadas.length) {
+                    container.innerHTML += `<div class="camada">${camadas[i]}</div>`;
+                    i++;
+                    setTimeout(mostrar, 700);
+                }
+            }
+            mostrar();
+        }
 
-Como funciona?
-1. A luz do Sol atravessa a atmosfera e aquece a superfície da Terra.
-2. A Terra libera parte desse calor de volta para o espaço em forma de radiação infravermelha.
-3. Os gases do efeito estufa absorvem e redirecionam parte desse calor de volta para a superfície, mantendo o planeta mais quente.
+        function quizResposta1() {
+            const resposta = document.querySelector('input[name="quiz1"]:checked');
+            const resultado = document.getElementById('resultado1');
+            if (resposta) {
+                if (resposta.value === "n") {
+                    resultado.textContent = "Correto! O efeito estufa natural é essencial para a vida.";
+                    resultado.style.color = "#27ae60";
+                } else {
+                    resultado.textContent = "Na verdade, o efeito estufa natural mantém a Terra aquecida. O problema é o excesso!";
+                    resultado.style.color = "#c0392b";
+                }
+            }
+        }
 
-Sem o efeito estufa, a Terra seria muito fria para a maioria das formas de vida.
-No entanto, o excesso desses gases, causado principalmente pela queima de combustíveis fósseis, aumenta o efeito estufa e pode causar o aquecimento global.
+        function quizResposta2() {
+            const resposta = document.querySelector('input[name="quiz2"]:checked');
+            const resultado = document.getElementById('resultado2');
+            if (resposta) {
+                if (resposta.value === "s") {
+                    resultado.textContent = "Correto! Isso libera mais CO₂, intensificando o efeito estufa.";
+                    resultado.style.color = "#27ae60";
+                } else {
+                    resultado.textContent = "Na verdade, combustíveis fósseis liberam gases que aumentam o efeito estufa.";
+                    resultado.style.color = "#c0392b";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>O que é o Efeito Estufa?</h1>
+        <p>
+            O efeito estufa é um fenômeno natural e essencial para a vida na Terra. Ele ocorre quando gases como dióxido de carbono (CO₂), metano (CH₄) e vapor d'água retêm parte do calor do Sol, mantendo nosso planeta aquecido.<br>
+            <br>
+            <strong>Como funciona?</strong>
+            <ol>
+                <li>O Sol emite energia que atravessa a atmosfera e aquece a Terra.</li>
+                <li>Parte desse calor é refletida de volta para o espaço.</li>
+                <li>Gases do efeito estufa absorvem e redirecionam parte desse calor para a superfície, mantendo a Terra mais quente.</li>
+            </ol>
+        </p>
+        <p><strong>Principais gases do efeito estufa:</strong></p>
+        <ul>
+            <li>Dióxido de carbono (CO₂)</li>
+            <li>Metano (CH₄)</li>
+            <li>Óxidos de nitrogênio (NOₓ)</li>
+            <li>Vapor d'água</li>
+        </ul>
+        <div class="analogia">
+            <strong>Analogia do cobertor:</strong>
+            <button class="btn" onclick="mostrarCamadas()">Mostrar animação</button>
+            <div id="camadas"></div>
+            <p>Imagine a atmosfera como um cobertor sobre a Terra. Ela mantém o calor próximo à superfície, deixando o planeta aconchegante. Se adicionarmos muitos 'cobertores' (gases), fica quente demais!</p>
+        </div>
+        <div class="quiz">
+            <h2>Quiz do Efeito Estufa</h2>
+            <label>1. O efeito estufa é sempre ruim?</label>
+            <input type="radio" id="quiz1sim" name="quiz1" value="s">
+            <label for="quiz1sim">Sim</label>
+            <input type="radio" id="quiz1nao" name="quiz1" value="n">
+            <label for="quiz1nao">Não</label>
+            <button class="btn" onclick="quizResposta1()">Ver resposta</button>
+            <div class="resultado" id="resultado1"></div>
 
-Analogia:
-Imagine a atmosfera como um cobertor. Ela mantém o calor próximo da superfície, deixando o planeta aconchegante.
-Se adicionarmos muitos cobertores, ficará quente demais!
-
-Principais gases do efeito estufa:
-- Dióxido de carbono (CO₂)
-- Metano (CH₄)
-- Óxidos de nitrogênio (NOₓ)
-- Vapor d'água
-
-Conclusão:
-O efeito estufa é essencial para a vida, mas seu aumento exagerado traz problemas para o clima do planeta.
-"""
-    print(explicacao)
-
-if __name__ == "__main__":
-    explicar_efeito_estufa()
+            <label>2. Queimar combustíveis fósseis aumenta o efeito estufa?</label>
+            <input type="radio" id="quiz2sim" name="quiz2" value="s">
+            <label for="quiz2sim">Sim</label>
+            <input type="radio" id="quiz2nao" name="quiz2" value="n">
+            <label for="quiz2nao">Não</label>
+            <button class="btn" onclick="quizResposta2()">Ver resposta</button>
+            <div class="resultado" id="resultado2"></div>
+        </div>
+        <p style="margin-top:30px;">
+            <strong>Conclusão:</strong><br>
+            O efeito estufa é vital para a vida, mas seu aumento exagerado traz riscos ao clima do planeta. Devemos cuidar das nossas emissões e preservar o equilíbrio da atmosfera!
+        </p>
+    </div>
+</body>
+</html>
